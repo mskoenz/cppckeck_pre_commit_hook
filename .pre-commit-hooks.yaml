@@ -1,6 +1,6 @@
 -   id: cppcheck
     name: cppcheck
     description: Run cppcheck on Files.
-    entry: ./full_cppcheck.py
-    language: system
+    entry: full_cppcheck.py
+    language: python
     files: \.(c|cc|cxx|cpp|h|hpp|hxx)$
