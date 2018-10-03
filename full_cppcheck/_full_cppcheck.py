@@ -12,8 +12,12 @@ __all__ = ["full_cppcheck"]
 def full_cppcheck(src):
     if not src:
         return
-    cmd = ("cppcheck","--quiet", "--enable=missingInclude,portability,performance,style,warning", "--std=c++14") + src
-    res = subprocess.run(cmd, capture_output=True)
+    cmd = ("cppcheck",
+           "--quiet",
+           "--enable=all",
+           "--std=c++14"
+           ) + src
+    res = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding="utf-8")
     if res.returncode or res:
-        print(res.stdout.decode("utf-8").strip())
+        print(res.stdout.strip())
         sys.exit(1)
