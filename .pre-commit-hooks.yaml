@@ -1,0 +1,7 @@
+-   id: cppcheck
+    name: cppcheck
+    description: Run cppcheck on Files.
+    entry: cppcheck
+    language: system
+    files: \.(c|cc|cxx|cpp|h|hpp|hxx)$
+    args: []
