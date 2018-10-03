@@ -1,16 +1,22 @@
+fail_fast: true
 repos:
--   repo: git://github.com/pre-commit/pre-commit-hooks
-    rev: v1.4.0
-    hooks:
-    -   id: check-byte-order-marker
-    -   id: check-case-conflict
-    -   id: check-merge-conflict
-    -   id: check-symlinks
-    -   id: check-yaml
-    -   id: end-of-file-fixer
-    -   id: mixed-line-ending
-    -   id: trailing-whitespace
--   repo: https://github.com/pre-commit/pre-commit
-    rev: v1.10.4
-    hooks:
-- id: validate_manifest
+- repo: git://github.com/pre-commit/pre-commit-hooks
+  sha: v1.2.3
+  hooks:
+  - id: double-quote-string-fixer
+    name: pre-commit-hooks - double to single quote fixer
+
+- repo: git://github.com/pre-commit/mirrors-yapf
+  sha: v0.20.0
+  hooks:
+  - id: yapf
+    name: yapf             - python code beautifier
+    language: system
+
+- repo: git://github.com/guykisel/prospector-mirror
+  sha: b27f281eb9398fc8504415d7fbdabf119ea8c5e1
+  hooks:
+  - id: prospector
+    name: prospector       - good code style enforcer
+    language: system
+    exclude: '^(doc/)|(examples/)|(futures/)'
