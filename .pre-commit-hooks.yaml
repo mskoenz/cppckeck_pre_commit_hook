@@ -4,4 +4,4 @@
     entry: cppcheck
     language: system
     files: \.(c|cc|cxx|cpp|h|hpp|hxx)$
-    args: []
+    args: [--error-exitcode=1]
