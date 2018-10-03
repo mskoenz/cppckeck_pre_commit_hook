@@ -11,5 +11,5 @@ I selected all possible checks short of unusedFunction which might be too severe
     sha: master
     hooks:
     -   id: cppcheck
-        args: [--enable=missingInclude,information,portability,performance,style,warning]
+        args: [--enable=missingInclude,portability,performance,style,warning]
 ```
