@@ -12,12 +12,24 @@ __all__ = ["full_cppcheck"]
 def full_cppcheck(src):
     if not src:
         return
+
     cmd = ("cppcheck",
            "--quiet",
            "--enable=all",
            "--std=c++14"
            ) + src
+
     res = subprocess.run(cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding="utf-8")
-    if res.returncode or res:
-        print(res.stdout.strip())
+    err = res.stderr.strip().split("\n")
+
+    actual_err = []
+    for line in err:
+        if line.startswith("(information)"):
+            continue
+        if "(style) The function" in line and "is never used." in line:
+            continue
+        actual_err.append(line)
+    print("err")
+    if res.returncode or actual_err:
+        print("\n".join(actual_err))
         sys.exit(1)
