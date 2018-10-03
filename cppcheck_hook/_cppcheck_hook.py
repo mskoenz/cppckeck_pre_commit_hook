@@ -32,7 +32,7 @@ def full_cppcheck(src):
         if '(style) struct member' in line and 'is never used.' in line:
             continue
         actual_err.append(line)
-    print('err')
+
     if res.returncode or actual_err:
         print('\n'.join(actual_err))
         sys.exit(1)
