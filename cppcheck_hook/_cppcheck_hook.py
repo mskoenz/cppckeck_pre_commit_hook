@@ -18,11 +18,9 @@ def cppcheck_hook(enable, std, src):
     if not src:
         return
 
-    print(enable, std, 1)
     cmd = (
         'cppcheck',
         '--template=[{file}:{line}:{column}]: ({id}) {message}\n{code}',
-        # "--template={id} {code}",
         '--quiet',
         '--enable={}'.format(enable),
         '--std={}'.format(std),
@@ -41,6 +39,7 @@ def cppcheck_hook(enable, std, src):
         if line.startswith('[nofile'):
             code = None
             i += 1
+            continue
         else:
             code = err[i + 1]
             highlight = err[i + 2]
@@ -51,11 +50,9 @@ def cppcheck_hook(enable, std, src):
 
         if line == '':
             continue
-        if line.startswith('(information)'):
+        if 'The function' in line and 'is never used.' in line:
             continue
-        if '(style) The function' in line and 'is never used.' in line:
-            continue
-        if '(style) struct member' in line and 'is never used.' in line:
+        if 'struct member' in line and 'is never used.' in line:
             continue
         actual_err.append(line)
         if code is not None:
