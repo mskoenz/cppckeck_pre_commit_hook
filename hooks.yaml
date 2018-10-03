@@ -1,0 +1,6 @@
+-   id: cppcheck
+    name: cppcheck
+    description: Run cppcheck on Files.
+    entry: cppcheck --error-exitcode=1 --quiet
+    language: system
+    files: \.(c|cc|cxx|cpp|h|hpp|hxx)$
