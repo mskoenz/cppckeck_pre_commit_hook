@@ -28,6 +28,8 @@ def full_cppcheck(src):
             continue
         if "(style) The function" in line and "is never used." in line:
             continue
+        if "(style) struct member" in line and "is never used." in line:
+            continue
         actual_err.append(line)
     print("err")
     if res.returncode or actual_err:
