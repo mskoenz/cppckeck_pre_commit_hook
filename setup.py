@@ -20,10 +20,10 @@ setup(
     ],
 
     packages=["full_cppcheck"],
-    install_requires=[],
+    install_requires=["click"],
     entry_points={
         'console_scripts': [
-            'full_cppcheck = full_cppcheck:main',
+            'full_cppcheck = full_cppcheck:full_cppcheck',
         ],
     },
 )

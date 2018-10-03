@@ -3,10 +3,10 @@
 # Author:  Mario S. Könz <mskoenz@gmx.net>
 
 import sys
+import click
 
-def main():
+
+@click.command
+def full_cppcheck():
     print("bla")
-    return 1
-
-if __name__ == "__main__":
-    sys.exit(main())
+    click.exit(1)
