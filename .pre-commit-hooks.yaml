@@ -1,6 +1,6 @@
--   id: cppcheck
-    name: cppcheck
+-   id: cppcheck_hook
+    name: cppcheck_hook
     description: Run cppcheck on Files.
-    entry: full_cppcheck
+    entry: cppcheck_hook
     language: python
     files: \.(c|cc|cxx|cpp|h|hpp|hxx)$

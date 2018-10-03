@@ -5,7 +5,7 @@
 from setuptools import setup
 
 setup(
-    name='full_cppcheck',
+    name='cppcheck_hook',
     description='Wrapper for cppcheck',
     url='https://github.com/mskoenz/pre-commit-cppcheck',
     version='0.1.0',
@@ -16,10 +16,10 @@ setup(
         'Programming Language :: Python :: 3.6',
         'Programming Language :: Python :: 3.7',
     ],
-    packages=['full_cppcheck'],
+    packages=['cppcheck_hook'],
     install_requires=['click'],
     entry_points="""
         [console_scripts]
-        full_cppcheck=full_cppcheck:full_cppcheck
+        cppcheck_hook=cppcheck_hook:cppcheck_hook
         """,
 )
