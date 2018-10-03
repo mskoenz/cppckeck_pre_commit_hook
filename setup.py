@@ -21,9 +21,9 @@ setup(
 
     packages=["full_cppcheck"],
     install_requires=["click"],
-    entry_points={
-        'console_scripts': [
-            'full_cppcheck = full_cppcheck:full_cppcheck',
-        ],
-    },
+    entry_points="""
+        [console_scripts]
+        full_cppcheck=full_cppcheck:full_cppcheck
+        """
+    ,
 )
