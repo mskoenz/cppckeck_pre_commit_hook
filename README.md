@@ -2,7 +2,7 @@
 
 [cppcheck](https://github.com/danmar/cppcheck/) package for [pre-commit](http://pre-commit.com).
 
-I selected all possible checks: missingInclude,information,portability,performance,style,warning which might be too severe for some. Just modify the args line below.
+I selected all possible checks short of unusedFunction which might be too severe for some. Just modify the args line below.
 
 ## Using cppcheck with pre-commit
 
