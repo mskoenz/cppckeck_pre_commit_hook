@@ -7,12 +7,12 @@ import sys
 import subprocess
 
 import click
-__all__ = ['full_cppcheck']
+__all__ = ['cppcheck_hook']
 
 
 @click.command()
 @click.argument('src', nargs=-1)
-def full_cppcheck(src):
+def cppcheck_hook(src):
     if not src:
         return
 
