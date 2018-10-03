@@ -8,7 +8,7 @@ I selected all possible checks short of unusedFunction which might be too severe
 
 ```yaml
 -   repo: git://github.com/mskoenz/pre-commit-cppcheck
-    sha: master
+    sha: v1.1
     hooks:
     -   id: cppcheck
         args: [--enable=missingInclude,portability,performance,style,warning]
