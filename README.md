@@ -18,7 +18,7 @@ cppcheck-disable=copyCtorAndEqOperator
 
 ```yaml
 -   repo: git://github.com/mskoenz/pre-commit-cppcheck
-    sha: v2.0
+    sha: v3.0
     hooks:
     -   id: cppcheck_hook
 ```
