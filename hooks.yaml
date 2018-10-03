@@ -1,6 +1,6 @@
--   id: cppcheck
-    name: cppcheck
+-   id: cppcheck_hook
+    name: cppcheck_hook
     description: Run cppcheck on Files.
-    entry: cppcheck --error-exitcode=1 --quiet
-    language: system
+    entry: cppcheck_hook
+    language: python
     files: \.(c|cc|cxx|cpp|h|hpp|hxx)$

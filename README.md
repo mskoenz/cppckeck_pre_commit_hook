@@ -14,7 +14,7 @@ This wrapper only exposes a limited part of the cppcheck-interface, namely:
 
 ```yaml
 -   repo: git://github.com/mskoenz/pre-commit-cppcheck
-    sha: v1.1
+    sha: v2.0
     hooks:
     -   id: cppcheck_hook
 ```

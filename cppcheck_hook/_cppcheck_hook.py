@@ -12,11 +12,17 @@ __all__ = ['cppcheck_hook']
 
 @click.command()
 @click.argument('src', nargs=-1)
-def cppcheck_hook(src):
+@click.option('--enable', default='all')
+@click.option('--std', default='c++14')
+def cppcheck_hook(enable, std, src):
     if not src:
         return
 
-    cmd = ('cppcheck', '--quiet', '--enable=all', '--std=c++14') + src
+    print(enable, std)
+    cmd = (
+        'cppcheck', '--quiet', '--enable={}'.format(enable),
+        '--std={}'.format(std)
+    ) + src
 
     res = subprocess.run(
         cmd, stdout=subprocess.PIPE, stderr=subprocess.PIPE, encoding='utf-8'
@@ -25,6 +31,8 @@ def cppcheck_hook(src):
 
     actual_err = []
     for line in err:
+        if line == '':
+            continue
         if line.startswith('(information)'):
             continue
         if '(style) The function' in line and 'is never used.' in line:
@@ -33,6 +41,9 @@ def cppcheck_hook(src):
             continue
         actual_err.append(line)
 
-    if res.returncode or actual_err:
+    if actual_err:
         print('\n'.join(actual_err))
         sys.exit(1)
+    if res.returncode:
+        print(res.stdout.strip())
+        sys.exit(res.returncode)
