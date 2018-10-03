@@ -10,6 +10,10 @@ This wrapper only exposes a limited part of the cppcheck-interface, namely:
 --std     (default: c++14)
 ```
 
+You can use disable with the error-id (the word in bracets) to suppress an error/warning.
+```
+cppcheck-disable=copyCtorAndEqOperator
+```
 ## Using cppcheck with pre-commit
 
 ```yaml

@@ -8,7 +8,7 @@ setup(
     name='cppcheck_hook',
     description='Wrapper for cppcheck',
     url='https://github.com/mskoenz/pre-commit-cppcheck',
-    version='0.2.0',
+    version='0.3.0',
     author='Mario S. Könz',
     author_email='mskoenz@gmx.net',
     classifiers=[
